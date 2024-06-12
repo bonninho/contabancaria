@@ -1,17 +1,30 @@
 package conta;
 
 import java.util.Scanner;
+import conta.util.Cores;
+import conta.model.Conta;
 
 public class Menu {
 
 	public static void main(String[] args) {
+		
+		Conta c1 = new Conta(0001, 123, 1, "Renata", 10000.0f);
+		c1.visualizar();
+		c1.sacar(12000.0f);
+		c1.visualizar();
+		c1.depositar(5000.0f);
+		c1.visualizar();
+		
+		
+		
 		
 		Scanner teclado = new Scanner(System.in);
 		int opcao;
 		
 		while (true) {
 		
-		System.out.println("*********************************************");
+		System.out.println(Cores.TEXT_YELLOW + Cores.ANSI_BLACK_BACKGROUND
+				         + "*********************************************");
 		System.out.println("                                             ");
 		System.out.println("            BANCO DO BRAZIL COM Z            ");
 		System.out.println("                                             ");
@@ -27,12 +40,59 @@ public class Menu {
 		System.out.println("                                             ");
 		System.out.println("*********************************************");
 		System.out.println("Entre com a opção desejada:                  ");
-		System.out.println("                                             ");
+		System.out.println("                                             " + Cores.TEXT_RESET);
 		
 		opcao = teclado.nextInt();
+		
+		if (opcao == 9) {
+			System.out.println(Cores.TEXT_WHITE_BOLD + "\nBanco do Brazil com Z - O seu futuro começa aqui!");
+			sobre();
+			teclado.close();
+			System.exit(0);
+		}
+		
+		switch (opcao) {
+		case 1:
+			System.out.println(Cores.TEXT_WHITE_BOLD + "Criar Conta\n\n");
+			break;
+		case 2:
+			System.out.println(Cores.TEXT_WHITE_BOLD + "Listar todas as Contas\n\n");
+			break;
+		case 3: 
+			System.out.println(Cores.TEXT_WHITE_BOLD + "Consultar dados da Conta por número\n\n");
+			break;
+		case 4:
+			System.out.println(Cores.TEXT_WHITE_BOLD + "Atualizar dados da Conta\n\n");
+			break;
+		case 5:
+			System.out.println(Cores.TEXT_WHITE_BOLD + "Apagar a Conta\n\n");
+			break;
+		case 6:
+			System.out.println(Cores.TEXT_WHITE_BOLD + "Saque\n\n");
+			break;
+		case 7:
+			System.out.println(Cores.TEXT_WHITE_BOLD + "Depósito\n\n");
+			break;
+		case 8:
+			System.out.println(Cores.TEXT_WHITE_BOLD + "Transferência entre Contas\n\n");
+			break;
+		default:
+			System.out.println(Cores.TEXT_RED_BOLD + "\nOpção Inválida!\n");
+			break;
+				
+		}
 		
 		}
 		
 	}
+	
+	public static void sobre() {
+		System.out.println("\n*****************************************************");
+		System.out.println("Projeto Desenvolvido por: ");
+		System.out.println("Bianka Bonete Staianof - biankabonete@gmail.com");
+		System.out.println("github.com/bonninho");
+		System.out.println("*******************************************************");
+	}
+	
 
 }
