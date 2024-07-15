@@ -1,6 +1,6 @@
 package conta.model;
 
-public class Conta {
+public abstract class Conta {
 	private int numero;
 	private int agencia;
 	private int tipo;
@@ -74,6 +74,7 @@ public class Conta {
 		}
 		
 		this.setSaldo(this.getSaldo() - valor);
+		System.out.println("\nSaque realizado com sucesso!");
 		return true;
 	}
 	
